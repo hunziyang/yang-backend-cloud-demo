@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: trade-service
+  cloud:
+    nacos:
+      discovery:
+        namespace: 443409e7-d225-4d01-8e78-da4b1daced80
+        username: nacos
+        password: nacos
+        server-addr: 192.168.52.129:8848
+server:
+  port: 8092
+  servlet:
+    context-path: /trade-service
+feign:
+  sentinel:
+    enabled: true
+logging:
+  level:
+    com.yang.cloud.backend.demo.trade.feign: debug

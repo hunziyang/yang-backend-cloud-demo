@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: stock-service
+  cloud:
+    nacos:
+      discovery:
+        namespace: 443409e7-d225-4d01-8e78-da4b1daced80
+        username: nacos
+        password: nacos
+        server-addr: 192.168.52.129:8848
+    sentinel:
+      eager: true
+      transport:
+        dashboard: 192.168.52.129:8090
+      datasource:
+        flow:
+          nacos:
+            data-id: flow-config.json
+            server-addr: 192.168.52.129:8848
+            username: nacos
+            password: nacos
+            namespace: 443409e7-d225-4d01-8e78-da4b1daced80
+            rule-type: flow
+            data-type: json
+        degrade:
+          nacos:
+            data-id: degrade-config.json
+            server-addr: 192.168.52.129:8848
+            username: nacos
+            password: nacos
+            namespace: 443409e7-d225-4d01-8e78-da4b1daced80
+            rule-type: degrade
+            data-type: json
+
+server:
+  port: 8091
+  servlet:
+    context-path: /stock-service
